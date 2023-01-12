@@ -1,0 +1,23 @@
+{
+  "name": "@stein197/pwd",
+  "version": "1.0.0",
+  "description": "Password generator",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stein197/js-pwd.git"
+  },
+  "keywords": [
+    "password",
+    "pwd"
+  ],
+  "author": "Nail' Gafarov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stein197/js-pwd/issues"
+  },
+  "homepage": "https://github.com/stein197/js-pwd#readme",
+  "dependencies": {
+    "@stein197/util": "^1.17.0"
+  }
+}
