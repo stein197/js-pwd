@@ -6,8 +6,12 @@ const pwd = require(".");
 
 (function main (...args) {
 	const [length = 8, options] = parse(...args);
-	const password = pwd(length, options);
-	process.stdout.write(password);
+	try {
+		const password = pwd(length, options);
+		process.stdout.write(password);
+	} catch (e) {
+		process.stderr.write(e.message);
+	}
 })(...process.argv.slice(2));
 
 /**
