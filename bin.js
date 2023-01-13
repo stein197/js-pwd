@@ -1,6 +1,8 @@
+#!/usr/bin/env node
+
 // @ts-check
 const process = require("node:process");
-const pwd = require("..");
+const pwd = require(".");
 
 (function main (...args) {
 	const [length = 8, options] = parse(...args);
