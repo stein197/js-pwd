@@ -33,8 +33,6 @@ module.exports = function (length, options = DEFAULT_OPTIONS) {
 	options = options === DEFAULT_OPTIONS ? DEFAULT_OPTIONS : {...DEFAULT_OPTIONS, ...options};
 	if (Object.entries(options).filter(([k, v]) => k !== "duplicates").map(([k, v]) => v).every(value => !value))
 		throw new Error("At least one option should be set to true");
-	// if (Object.values(options).every(value => !value))
-	// 	throw new Error("At least one option should be set to true");
 	const sets = [
 		options.numbers ? STRING_NUMBERS : null,
 		options.symbols ? STRING_SYMBOLS : null,
