@@ -2,30 +2,19 @@
 
 // @ts-check
 const process = require("node:process");
+const arg = require("@stein197/cli/arg");
 const pwd = require(".");
 
+const LENGTH_DEFAULT = 8;
+
 (function main (...args) {
-	const [length = 8, options] = parse(...args);
+	const data = arg.parse(args, {
+		no: true
+	});
 	try {
-		const password = pwd(length, options);
+		const password = pwd(+(data.opts.length ?? LENGTH_DEFAULT), data.opts);
 		process.stdout.write(password);
 	} catch (e) {
 		process.stderr.write(e.message);
 	}
 })(...process.argv.slice(2));
-
-/**
- * @param {...string} args
- */
-function parse(...args) {
-	const result = [, {}];
-	for (const arg of args)
-		if (arg.startsWith("--"))
-			if (arg.startsWith("--no-"))
-				result[1][arg.replace("--no-", "")] = false;
-			else
-				result[1][arg.replace("--", "")] = true;
-		else
-			result[0] = +arg;
-	return result;
-}

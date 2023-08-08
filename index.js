@@ -8,7 +8,7 @@
  * }} Options
  */
 // @ts-check
-const util = require("@stein197/util/util");
+const array = require("@stein197/util/array");
 
 /** @type {Options} */
 const DEFAULT_OPTIONS = {
@@ -18,10 +18,10 @@ const DEFAULT_OPTIONS = {
 	uppercase: true,
 	duplicates: true
 };
-const STRING_NUMBERS = "0123456789";
-const STRING_SYMBOLS = "~!@#$%^&*()_+{}|:\"<>?`-=[]\\;',./№";
-const STRING_LOWERCASE = "abcdefghijklmnopqrstuvwxyz";
-const STRING_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const CHAR_NUMBERS = "0123456789".split("");
+const CHAR_SYMBOLS = "~!@#$%^&*()_+{}|:\"<>?`-=[]\\;',./№".split("");
+const CHAR_LOWERCASE = "abcdefghijklmnopqrstuvwxyz".split("");
+const CHAR_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
 /**
  * @param {number} length
@@ -34,15 +34,15 @@ module.exports = function (length, options = DEFAULT_OPTIONS) {
 	if (Object.entries(options).filter(([k, v]) => k !== "duplicates").map(([k, v]) => v).every(value => !value))
 		throw new Error("At least one option should be set to true");
 	const sets = [
-		options.numbers ? STRING_NUMBERS : null,
-		options.symbols ? STRING_SYMBOLS : null,
-		options.lowercase ? STRING_LOWERCASE : null,
-		options.uppercase ? STRING_UPPERCASE : null
+		options.numbers ? CHAR_NUMBERS : null,
+		options.symbols ? CHAR_SYMBOLS : null,
+		options.lowercase ? CHAR_LOWERCASE : null,
+		options.uppercase ? CHAR_UPPERCASE : null
 	].filter(set => set);
 	let result = "";
 	while (result.length !== length) {
-		const set = sets[util.random(0, sets.length - 1)];
-		const char = set[util.random(0, set.length - 1)];
+		const set = array.random(sets);
+		const char = array.random(set);
 		if (!options.duplicates && result.includes(char))
 			continue;
 		result += char;

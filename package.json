@@ -22,9 +22,10 @@
   },
   "homepage": "https://github.com/stein197/js-pwd#readme",
   "dependencies": {
-    "@stein197/util": "^1.17.0"
+    "@stein197/cli": "^1.0.0",
+    "@stein197/util": "^2.2.0"
   },
   "devDependencies": {
-    "mocha": "10.2.0"
+    "mocha": "^10.2.0"
   }
 }
