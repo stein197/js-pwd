@@ -1,0 +1,15 @@
+Usage:
+pwd [--help] [--length=<length>] [--no-numbers] [--no-symbols] [--no-lowercase] [--no-uppercase] [--no-duplicates]
+
+Where:
+--help            Show this help
+<length>          Set the length of a password (8 by default)
+--no-numbers      Exclude numbers
+--no-symbols      Exclude special characters
+--no-lowercase    Exclude lowercase characters
+--no-uppercase    Exclude uppercase characters
+--no-duplicate    Exclude symbol duplicates
+
+Example:
+> pwd --length 4 --no-symbols
+> 3fD1
