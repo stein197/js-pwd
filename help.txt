@@ -1,5 +1,5 @@
 Usage:
-pwd [--help] [--length=<length>] [--no-numbers] [--no-symbols] [--no-lowercase] [--no-uppercase] [--no-duplicates]
+pwd [--help] [--length=<length>] [--no-numbers] [--no-symbols] [--no-lowercase] [--no-uppercase] [--no-duplicates] [--exclude=<exclude>]
 
 Where:
 --help            Show this help
@@ -9,6 +9,7 @@ Where:
 --no-lowercase    Exclude lowercase characters
 --no-uppercase    Exclude uppercase characters
 --no-duplicate    Exclude symbol duplicates
+--exclude         Exclude given characters from the output
 
 Example:
 > pwd --length 4 --no-symbols

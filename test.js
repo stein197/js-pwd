@@ -40,6 +40,12 @@ describe("pwd()", () => {
 		while (pwd(10, {uppercase: false}).match(/[A-Z]/));
 		assert.ok(true);
 	});
+	it("Should exclude specified characters", () => {
+		for (let i = 0; i < 10; i++)
+			assert.equal(pwd(10, {exclude: "0123456789"}).match(/\d/), null);
+		for (let i = 0; i < 10; i++)
+			assert.equal(pwd(10, {exclude: "abcdefghijklmnopqrstuvwxyz"}).match(/[a-z]/), null);
+	});
 	it("Should throw an error when all flags are false", () => {
 		assert.throws(() => pwd(10, {numbers: false, symbols: false, lowercase: false, uppercase: false}), {message: "At least one option should be set to true"});
 	});
